@@ -1,0 +1,6 @@
+bottle
+bottle-cors
+bottle-cors-plugin
+dataset
+mysql.connector
+pymysql

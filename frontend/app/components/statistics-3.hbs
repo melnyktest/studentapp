@@ -1,0 +1,13 @@
+<div class="col-7">
+    <h6>TASK 3. YEAR-QUARTER GENERAL AVERAGE</h6>
+    <hr />
+    <div class="form-group mt-2 mb-2 col-5">
+        <label for="quarters" class="mb-2"> Choose Quarters:</label>
+        <select id="quarters" class="form-select" {{on "change" this.updateQuarter}}>
+            {{#each this.quarters as |quarter|}}
+            <option value={{quarter.id}}>{{quarter.year}}-{{quarter.quarter}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <Amchart @data={{this.quarterAvgGradeForCourses}}/>
+</div>

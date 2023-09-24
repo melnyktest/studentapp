@@ -1,0 +1,13 @@
+<div class="col-7">
+    <h6>TASK 2. SUBJECT GRADES PER QUARTER</h6>
+    <hr />
+    <div class="form-group mt-2 mb-2 col-5">
+        <label for="students" class="mb-2"> Choose Students:</label>
+        <select id="students" class="form-select"  {{on "change" this.updateCourse}}>  
+            <option value="mathmatics" >Mathmatics</option>
+            <option value="computer" >Computer</option>
+            <option value="literature" >Literature</option>
+        </select>
+    </div>
+    <Amchart @data={{this.courseGradesPerQuarter}}/>
+</div>

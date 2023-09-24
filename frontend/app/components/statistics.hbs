@@ -1,0 +1,13 @@
+<div class="col-10">
+    <h6>TASK 1. STUDENT GENERAL AVERAGE PER QUARTER</h6>
+    <hr />
+    <div class="form-group mt-2 mb-2 col-5">
+        <label for="students" class="mb-2"> Choose Students:</label>
+        <select id="students" class="form-select" value={{this.student}} {{on "change" this.updateStudentId}}>
+            {{#each this.students as |student|}}
+            <option value={{student.id}} >{{student.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <Amchart @data={{this.studentAvgGradePerQuarter}} />
+</div>

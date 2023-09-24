@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top fixed">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            Student Management App
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <LinkTo @route="student-list" class="nav-link text-white d-flex align-items-center"
+                        aria-current="page">
+                        Student List
+                    </LinkTo>
+                </li>
+                <li class="nav-item">
+                    <LinkTo @route="statistics" class="nav-link text-white d-flex align-items-center">
+                        Statastics 1
+                    </LinkTo>
+                </li>
+                <li class="nav-item">
+                    <LinkTo @route="statistics-2" class="nav-link text-white d-flex align-items-center">
+                        Statastics 2
+                    </LinkTo>
+                </li>
+                <li class="nav-item">
+                    <LinkTo @route="statistics-3" class="nav-link text-white d-flex align-items-center">
+                        Statastics 3
+                    </LinkTo>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

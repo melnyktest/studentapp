@@ -1,0 +1,124 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 p-3" style="box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.4)">
+            <h4>Student List</h4>
+            <hr />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">birth_date</th>
+                        <th scope="col">class_name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.students as |student|}}
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.birth_date}}</td>
+                        <td>{{student.class_name}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" {{on "click" (fn this.editUser
+                                student)}}>Edit</button>
+                            <button type="button" class="btn btn-danger" {{on "click" (fn this.deleteUser
+                                student.id)}}>Delete</button>
+                        </td>
+                    </tr>
+                    {{else}}
+                    <tr>
+                        <td colspan="5" class="text-center">No data | Server Error</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item m-1">
+                        <a class="page-link" tabindex="-1" {{on "click" this.prevPage}}>Previous</a>
+                    </li>
+                    <input type="number" id="fetch_count" class="form-control m-1" style="width:100px" placeholder="5"
+                        {{on "change" this.updateFetchCount}} required />
+                    <li class="page-item m-1 {{if this.isNotFetchAble " disabled"}}">
+
+                        <a class="page-link" {{on "click" this.nextPage}}>Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div style="width:30px"></div>
+        <div class="col-5 p-5" style="box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.4)">
+            <h4>Add Grade | Edit Grade</h4>
+            <hr />
+            <form {{on 'submit' this.addGrade}}>
+                <div class="row mb-4">
+                    <div class="form-group mt-2 mb-2 col-6">
+                        <label for="name" class="col-4">Name:</label>
+                        <input type="text" id="name" class="form-control" value={{this.name}} {{on "change"
+                            this.updateName}} placeholder="John Doe" required />
+                    </div>
+
+                    <div class="form-group mt-2 mb-2 col-6">
+                        <label for="birth_date">Birth Date:</label>
+                        <input type="date" id="birth_date" class="form-control" value="{{this.birth_date}}"
+                            {{on "change" this.updateBirthDate}} />
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="form-group mt-2 mb-2 col-5">
+                        <label for="class_name">Class Name:</label>
+                        <select id="class_name" class="form-select" value={{this.class_name}} {{on "change"
+                            this.updateClassName}}>
+                            <option value="" selected>Choose Class</option>
+                            <option value="IT Class">IT Class</option>
+                            <option value="Math Class">Math Class</option>
+                            <option value="Literature Class">Literature Class</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="form-group mt-2 mb-2 col-6">
+                        <label for="year">Year:</label>
+                        <input type="number" id="year" class="form-control" value={{this.year}} placeholder="2022"
+                            {{on "change" this.updateEnrollmentYear}} required />
+                    </div>
+                    <div class="form-group mt-2 mb-2 col-6">
+                        <label for="quarter">Quarter:</label>
+                        <select id="quarter" class="form-select" value={{this.quarter}} {{on "change"
+                            this.updateQuarter}}>
+                            <option value="Q1">Q1</option>
+                            <option value="Q2">Q2</option>
+                            <option value="Q3">Q3</option>
+                            <option value="Q4">Q4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="form-group mt-2 mb-2 col-4">
+                        <label for="mathematics_grade">Mathematics:</label>
+                        <input type="number" id="mathematics_grade" class="form-control" placeholder="10" {{on "change"
+                            this.updateMathematicsGrade}} required />
+                    </div>
+
+                    <div class="form-group mt-2 mb-2 col-4">
+                        <label for="computer_grade">Computer:</label>
+                        <input type="number" id="computer_grade" class="form-control" placeholder="10" {{on "change"
+                            this.updateComputerGrade}} required />
+                    </div>
+
+                    <div class="form-group mt-2 mb-2 col-4">
+                        <label for="literature_grade">Literature:</label>
+                        <input type="number" id="literature_grade" class="form-control" placeholder="10" {{on "change"
+                            this.updateLiteratureGrade}} required />
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary col-12">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
